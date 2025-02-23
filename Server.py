@@ -4,8 +4,8 @@ from player import Player
 import pickle
 global bits
 
-server = "localhost"
-port = 5555
+server = "10.0.0.14"
+port = 8080
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
