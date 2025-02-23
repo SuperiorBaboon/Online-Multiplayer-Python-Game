@@ -24,12 +24,12 @@ def move(p):
     if keys[pygame.K_DOWN]:
         p.y += p.vel
 
-    # Update player rectangle
-    p.update()
-
     # Resolve collision
     if p.check_collision(floor):
         resolve_collision(p, floor)
+
+    # Update player rectangle
+    p.update()
 
 def resolve_collision(player, obj):
     """Resolves collision by moving the player out of the object on the shortest axis."""
