@@ -18,7 +18,7 @@ s.listen(2)
 print("Waiting for a connection, Server Started")
 
 
-players = [Player(150,800,50,50,(255,0,0),0, False), Player(824,800, 50,50, (0,0,255),0, False)]
+players = [Player(150,800,96,128,(255,0,0),0, False, 'pixil-frame-0.png'), Player(1650,800, 96,128, (0,0,255),0, False, 'pixil-frame-0.png')]
 
 def threaded_client(conn, player):
     conn.send(pickle.dumps(players[player]))

@@ -3,7 +3,7 @@ from Network import Network
 from player import Player
 from Floor import Floor
 
-width = 1024
+width = 1900
 height = 1024
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Client")
