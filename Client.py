@@ -10,26 +10,46 @@ pygame.display.set_caption("Client")
 
 floor = Floor()
 
+
 def move(p):
     keys = pygame.key.get_pressed()
     original_pos = (p.x, p.y)  # Store original position for collision resolution
+    p.y -= p.yVel
 
     # Handle movement
-    if keys[pygame.K_LEFT]:
-        p.x -= p.vel
-    if keys[pygame.K_RIGHT]:
-        p.x += p.vel
-    if keys[pygame.K_UP]:
-        p.y -= p.vel
-    if keys[pygame.K_DOWN]:
-        p.y += p.vel
+    if keys[pygame.K_a]:
+        p.x -= p.xVel
+
+    if keys[pygame.K_d]:
+        p.x += p.xVel
+
+    if keys[pygame.K_w]:
+        if p.collide:
+            p.yVel = 5
+
+    if keys[pygame.K_i]:
+        print("emote")
+
+    if keys[pygame.K_o]:
+        print("Heavy Attack")
+
+    if keys[pygame.K_k]:
+        print("light attack")
+
+    if keys[pygame.K_p]:
+        print("block")
 
     # Update player rectangle
     p.update()
 
     # Resolve collision
     if p.check_collision(floor):
+        p.yVel = 0
+        p.collide = True
         resolve_collision(p, floor)
+    else:
+        p.yVel -= 0.1
+        p.collide = False
 
 def resolve_collision(player, obj):
     """Resolves collision by moving the player out of the object on the shortest axis."""

@@ -4,7 +4,7 @@ from player import Player
 import pickle
 global bits
 
-server = "10.0.0.14"
+server = "10.5.195.243"
 port = 8080
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -18,7 +18,7 @@ s.listen(2)
 print("Waiting for a connection, Server Started")
 
 
-players = [Player(0,0,50,50,(255,0,0)), Player(100,100, 50,50, (0,0,255))]
+players = [Player(150,800,50,50,(255,0,0),0, False), Player(824,800, 50,50, (0,0,255),0, False)]
 
 def threaded_client(conn, player):
     conn.send(pickle.dumps(players[player]))

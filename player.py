@@ -1,14 +1,16 @@
 import pygame
 
 class Player:
-    def __init__(self, x, y, width, height, color):
+    def __init__(self, x, y, width, height, color, yVel, collide):
+        self.yVel = yVel
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.color = color
-        self.vel = 1
+        self.xVel = 1
         self.rect = pygame.Rect(x, y, width, height)
+        self.collide = False
 
     def draw(self, win):
         pygame.draw.rect(win, self.color, self.rect)
