@@ -3,8 +3,8 @@ from Network import Network
 from player import Player
 from Floor import Floor
 
-width = 500
-height = 500
+width = 1024
+height = 1024
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Client")
 
@@ -24,12 +24,12 @@ def move(p):
     if keys[pygame.K_DOWN]:
         p.y += p.vel
 
+    # Update player rectangle
+    p.update()
+
     # Resolve collision
     if p.check_collision(floor):
         resolve_collision(p, floor)
-
-    # Update player rectangle
-    p.update()
 
 def resolve_collision(player, obj):
     """Resolves collision by moving the player out of the object on the shortest axis."""
